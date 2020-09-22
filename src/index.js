@@ -77,10 +77,10 @@ const onSubmit = async () => {
   let nameVal = nameInput.value;
   
   const params = {
-    email: 'メールアドレスの値',
-    password: 'パスワードの値',
-    username: 'ユーザー名の値',
-    name: '名前の値'
+    email: emailVal,
+    password: passwordlVal,
+    username: usernameVal,
+    name: nameVal
   }
   const results = await validate(params);
   if (true /* バリデーション成功時*/) {
