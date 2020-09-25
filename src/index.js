@@ -92,7 +92,8 @@ const onSubmit = async () => {
         alert(err.message);
       });
   } else {
-    /* エラーメッセージを出力 addErrorMessageファンクション*/
+    /* エラーメッセージを出力*/
+    addErrorMessage();
   }
 }
 
