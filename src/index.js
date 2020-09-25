@@ -83,7 +83,7 @@ const onSubmit = async () => {
     name: nameVal
   }
   const results = await validate(params);
-  if (true /* バリデーション成功時*/) {
+  if (results[0].success && results[1].success && results[2].success && results[3].success) {//名前のバリデーションが成功したら。ユーザー名のバリデーションが成功したら。メールアドレス、パスワードも同様。
     signup(params)
       .then((json) => {
         alert(json.message);
@@ -92,7 +92,7 @@ const onSubmit = async () => {
         alert(err.message);
       });
   } else {
-    /* エラーメッセージを出力 */
+    /* エラーメッセージを出力 addErrorMessageファンクション*/
   }
 }
 
