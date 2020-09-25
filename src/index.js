@@ -91,10 +91,15 @@ const onSubmit = async () => {
       .catch((err) => {
         alert(err.message);
       });
-  } else {
-    /* エラーメッセージを出力*/
-    addErrorMessage();
-  }
+  } else if (results[0].success) {
+    addErrorMessage("username", results[1].message)
+  } else if (results[1].success) {
+    addErrorMessage("mail", results[2].message)
+  } else if (results[2].success) {
+    addErrorMessage("password", results[3].message)
+  } else (
+    addErrorMessage("name", results[0].message)
+  )
 }
 
 {
