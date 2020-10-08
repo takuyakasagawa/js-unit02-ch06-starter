@@ -91,19 +91,27 @@ const onSubmit = async () => {
       .catch((err) => {
         alert(err.message);
       });
-  } else if (results[0].success){
-    addErrorMessage(type.username, results[1].message)
-  } else if (results[1].success) {
-    addErrorMessage(type.email, results[2].message)
-  } else if (results[2].success) {
-    addErrorMessage(type.password, results[3].message)
-  } else (
-    addErrorMessage(type.name, results[0].message)
-  )
+    // } else if (results[0].success){
+    //   addErrorMessage(results.type, results[1].message)
+    // } else if (results[1].success) {
+    //   addErrorMessage(results.type, results[2].message)
+    // } else if (results[2].success) {
+    //   addErrorMessage(results.type, results[3].message)
+    // } else (
+    //   addErrorMessage(results.type, results[0].message)
+  } else {
+  for (let i = 0; i < results.length; ++i)
+  results.forEach(function(result,i) {return})
+  }
 }
 
 // ヒント1: usernameやnameなどの値を総称するオブジェクトのプロパティ名が、バリデーションファイルのスターターにあります以下の方法だと、バリデーションする項目があと100個増えると書き足さねばならず「再利用性」が低いので、再利用性を高くするよう書き換えてみましょう
 // ヒント2: 同じ内容で配列の値が異なるだけの処理を繰り返し4回書いていますねプログラミングでは「繰り返し処理を避ける」ことが良いとされていますこの繰り返しほとんど同じ処理を書く方法を抜け出すことのできる技法が、実はfor文のとある種類のメソッドにあります配列を値として取り扱うことのできるfor文の一種の技法をヒントに、少し調べてみましょう
+
+//for (let i = 0; i < arr.length; ++i)
+//arrays.forEach(function(array) { /* return... */ })
+//arrays.forEach(array => { /* return... */ })//引数１つのため省力
+//arrays.forEach((array,i) => /* ... */)//１行でかける場合は{}とreturn省力
 
 {
   const submit = document.getElementById('submit');
