@@ -91,16 +91,19 @@ const onSubmit = async () => {
       .catch((err) => {
         alert(err.message);
       });
-  } else if (results[0].success) {
-    addErrorMessage("username", results[1].message)
+  } else if (results[0].success){
+    addErrorMessage(type.username, results[1].message)
   } else if (results[1].success) {
-    addErrorMessage("mail", results[2].message)
+    addErrorMessage(type.email, results[2].message)
   } else if (results[2].success) {
-    addErrorMessage("password", results[3].message)
+    addErrorMessage(type.password, results[3].message)
   } else (
-    addErrorMessage("name", results[0].message)
+    addErrorMessage(type.name, results[0].message)
   )
 }
+
+// ヒント1: usernameやnameなどの値を総称するオブジェクトのプロパティ名が、バリデーションファイルのスターターにあります以下の方法だと、バリデーションする項目があと100個増えると書き足さねばならず「再利用性」が低いので、再利用性を高くするよう書き換えてみましょう
+// ヒント2: 同じ内容で配列の値が異なるだけの処理を繰り返し4回書いていますねプログラミングでは「繰り返し処理を避ける」ことが良いとされていますこの繰り返しほとんど同じ処理を書く方法を抜け出すことのできる技法が、実はfor文のとある種類のメソッドにあります配列を値として取り扱うことのできるfor文の一種の技法をヒントに、少し調べてみましょう
 
 {
   const submit = document.getElementById('submit');
