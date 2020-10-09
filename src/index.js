@@ -101,8 +101,9 @@ const onSubmit = async () => {
     //   addErrorMessage(results.type, results[0].message)
   } else {
   for (let i = 0; i < results.length; ++i)
-  results.forEach(function(result,i) {return})
-  }
+  results.forEach(function(result,i) {
+    addErrorMessage(results.type, result.message)})
+  } 
 }
 
 // ヒント1: usernameやnameなどの値を総称するオブジェクトのプロパティ名が、バリデーションファイルのスターターにあります以下の方法だと、バリデーションする項目があと100個増えると書き足さねばならず「再利用性」が低いので、再利用性を高くするよう書き換えてみましょう
