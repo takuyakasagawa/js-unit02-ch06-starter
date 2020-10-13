@@ -100,8 +100,7 @@ const onSubmit = async () => {
     // } else (
     //   addErrorMessage(results.type, results[0].message)
   } else {
-    for (let i = 0; i < results.length; ++i)
-    results.forEach(function(result,i) {
+    results.forEach(result => {
     addErrorMessage(results.type, result.message)})
   } 
 }
