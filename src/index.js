@@ -68,7 +68,7 @@ const signup = (params) => {
 const onSubmit = async () => {
   await removeErrors()
   let emailInput = document.getElementById('email');
-  let passwordInput = document.getElementById('pasword');
+  let passwordInput = document.getElementById('password');
   let usernameInput = document.getElementById('username');
   let nameInput = document.getElementById('name');
   let emailVal = emailInput.value;
