@@ -24,6 +24,17 @@ export default class extends BaseValidator {
         type: 'password',
         message: 'パスワードが短すぎます。'
       });
-    }
+    } 
   }
+  // _checkFormat() {
+  //   const re = /^[a-z]+\s+[a-z]+$/i;
+  //   const match = re.test(this.val);
+  //   if (match) {
+  //     return Promise.resolve();
+  //   } else {
+  //     return Promise.resolve({
+
+  //     })
+  //   }
+  // }
 }

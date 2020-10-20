@@ -18,15 +18,17 @@ export default class extends BaseValidator {
   _checkFormat() {
     /* 
       名前は必ず一つのスペースを含みます。
-      名前には半角英数字のみが利用可能です。
+      名前には半角英字のみが利用可能です。
     */
-   const re = /^[a-z]+\s+[a-z]+$/i;
-   const match = re.test(this.val);
+    //  const re = /^[a-zA-Z]*\s.[a-zA-Z]*$/;
+    const re = /^[a-zA-Z]*[ ][a-zA-Z]*$/;
+    const match = re.test(this.val);
    if (match) {
      return Promise.resolve();
    } else {
      return Promise.reject({
        success: false,
+       type: this.type,
        message:`${this.type}が異なります。`
      })
    }
