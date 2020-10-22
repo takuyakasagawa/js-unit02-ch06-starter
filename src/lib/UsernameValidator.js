@@ -28,8 +28,8 @@ export default class extends BaseValidator {
           success: false,
           type: this.type,
           message: `${this.type}のフォーマットが異なります。`
-        })
-      }
+          })
+    }
   }
 
 }
