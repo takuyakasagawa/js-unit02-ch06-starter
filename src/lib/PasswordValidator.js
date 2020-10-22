@@ -27,13 +27,15 @@ export default class extends BaseValidator {
     } 
   }
   // _checkFormat() {
-  //   const re = /^[a-z]+\s+[a-z]+$/i;
+  //   const re = /^[a-z]*\u*$/;
   //   const match = re.test(this.val);
   //   if (match) {
   //     return Promise.resolve();
   //   } else {
   //     return Promise.resolve({
-
+  //       success:  false,
+  //       type: 'password',
+  //       message: `${this.type}のフォーマットが異なります。`
   //     })
   //   }
   // }
