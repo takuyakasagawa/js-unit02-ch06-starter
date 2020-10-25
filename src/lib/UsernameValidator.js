@@ -32,4 +32,11 @@ export default class extends BaseValidator {
     }
   }
 
+  _errorResult(message) {
+    return{
+      success: false,
+      type: this.type,
+      message
+    }
+  }
 }
