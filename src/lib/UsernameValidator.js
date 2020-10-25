@@ -19,7 +19,7 @@ export default class extends BaseValidator {
     /*
       ユーザー名には半角英数字または@_-.の4つの記号のみを利用可能です。
     */
-    const re = /^[a-z0-9|.@_-]*$/i;
+    const re = /^[a-zA-Z0-9.@_-]*$/i;
     const match = re.test(this.val); 
     if (match) {
       return Promise.resolve();

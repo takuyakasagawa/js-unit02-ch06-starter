@@ -7,7 +7,6 @@ export default class extends BaseValidator {
     this._checkFormat = this._checkFormat.bind(this);
     this._checkAlphabet = this._checkAlphabet.bind(this);
     this._checkSymbol = this._checkSymbol.bind(this);
-    this._checkNumber = this._checkNumber.bind(this);
   }
   validate() {
     return super._cannotEmpty()
@@ -15,7 +14,6 @@ export default class extends BaseValidator {
       .then(this._checkFormat)
       .then(this._checkAlphabet)
       .then(this._checkSymbol)
-      .then(this._checkNumber)
       .then((res) => {
         return { success: true }; // Promise.resolve({ success: true })と同一
       })
@@ -51,7 +49,7 @@ export default class extends BaseValidator {
   }
 
   _checkAlphabet() {
-    const re = /[A-Z]/;
+    const re = /[A-Z]+/;
     const match = re.test(this.val);
     if (match) {
       return Promise.resolve();
@@ -59,13 +57,13 @@ export default class extends BaseValidator {
         return Promise.reject({
           success: false,
           type: this.type,
-          message: `大文字英字をパスワードに入力してください。`
+          message: `${this.typeName}には1文字以上の大文字アルファベットを使用してください。`
         })
       }
   }
 
   _checkSymbol() {
-    const re = /[_.-@]/i;
+    const re = /[_.-@]+/i;
     const match = re.test(this.val);
     if (match) {
       return Promise.resolve();
@@ -73,21 +71,7 @@ export default class extends BaseValidator {
         return Promise.reject({
           success: false,
           type: this.type,
-          message: `@._-の記号をどれか1文字以上入力してください。`
-        })
-      }
-  }
-
-  _checkNumber(){
-    const re = /[0-9]/;
-    const match = re.test(this.val);
-    if (match) {
-      return Promise.resolve();
-      }else {
-        return Promise.reject({
-          success: false,
-          type: this.type,
-          message: `数字を1文字以上入力してください。`
+          message: `${this.typeName}には@._-の記号をどれか1文字以上入力してください。`
         })
       }
   }
