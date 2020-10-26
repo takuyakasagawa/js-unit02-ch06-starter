@@ -55,13 +55,21 @@ const signup = (params) => {
       Accept: 'application/json; charset=utf-8',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({
-      name: params.name,
-      username: params.username,
-      email: params.email,
-      password: params.password
-    })
+    body: JSON.stringify(
+      {
+        name,
+        username,
+        email,
+        password
+      } = params
+    )
   })
+
+  // name: params.name,
+  // username: params.username,
+  // email: params.email,
+  // password: params.password
+
   .then((res) => {
     const json = res.json();
     if (res.status === 200) { // 登録成功

@@ -11,19 +11,15 @@ export default class {
         resolve(this);
       } else {
         reject({
-          success: false,
-          message: `${this.typeName}は必須です。`,
-          type: this.type
+          _errorResult(message) {
+            return{
+              success: false,
+              type: this.type,
+              message
+            }
+          }
         })
       }
     });
-  }
-
-  _errorResult(message) {
-    return{
-      success: false,
-      type: this.type,
-      message
-    }
   }
 }
